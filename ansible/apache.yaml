@@ -1,0 +1,8 @@
+---
+  - name: install httpd
+    hosts: inventory
+    task:
+      - name: ensure httpd is installed
+         yum:
+           name: httpd
+           state: latest
