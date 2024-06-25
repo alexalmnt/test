@@ -13,3 +13,8 @@
         name: httpd
         state: started
         enabled: yes
+    - name: touch file 
+      ansible.builtin.file:
+        path: /home/ec2-user/test.txt
+        state: touch 
+       
