@@ -2,17 +2,15 @@
 - name: install apache
   hosts: webservers
   become: yes
+  
   tasks:
-    - name: install apache
-      yum:
-        name: httpd
-        state: latest
-    - name: install ubuntu apache
-      apt:
-        name: apache2
-        state: latest
-    - name: simple index.html
-      ansible.builtin.file:
-        path: /var/www/html/
-        state: touch
-
+  - name: Install apache httpd 
+    apt:  
+      name: apache2
+      state: present
+  
+  tasks:
+  - name: Install apache amazon linux 2
+    yum:
+      name: httpd
+      state: latest
