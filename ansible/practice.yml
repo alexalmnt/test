@@ -1,0 +1,20 @@
+---
+- name: install and start nginx
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Ensure nginx is installed
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+
+    - name: ensure nginx is installed on debian based systems
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: start nginx service
+      ansible.builtin.service
+        name: nginx
+        state: started
+        enabled: true
