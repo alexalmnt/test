@@ -11,3 +11,18 @@
     yum:
       name: httpd
       state: latest       
+
+
+
+
+
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install Apache on CentOS and Ubuntu
+      package:
+        name: "{{ apache_pkg }}"
+        state: present
+      vars:
+        apache_pkg: "{{ 'httpd' if ansible_distribution == 'CentOS' else 'apache2' }}"
