@@ -1,22 +1,5 @@
 ---
-- name: install httpd
-  hosts: webservers
-  become: true
-  tasks:
-  - name: install apache httpd 
-    apt:
-      name: apache2
-      state: present
-  - name: install latest version of httpd
-    yum:
-      name: httpd
-      state: latest       
-
-
-
-
-
-
+- name: name
 - hosts: all
   become: yes
   tasks:
